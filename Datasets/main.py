@@ -9,7 +9,7 @@ original = pd.read_csv('Datasets/data/highest_hollywood_grossing_movies.csv')
 
 hollywood_movies = pd.read_csv('Datasets/data/highest_hollywood_grossing_movies.csv',
                             header=None,
-                            names=['Title', 'Year', 'Distributors', 'Budget', 'Worldwide Sales', 'Genres', 'Running Time'])
+                            names=['Title', 'Year', 'Distributors', 'Budget (in $)', 'Worldwide Sales (in $)', 'Genres', 'Running Time'])
 
 # Data Cleaning
 hollywood_movies
@@ -32,7 +32,7 @@ def showCharts():
     hollywood_movies.plot(
                     kind='scatter',
                     x='Title',
-                    y='Worldwide Sales',
+                    y='Worldwide Sales (in $)',
                     color='blue',
                     alpha=0.3,
                     title='Worldwide Sales of Movies in USD')
@@ -40,10 +40,10 @@ def showCharts():
 
 # Data Analysis
 
-average_sales = hollywood_movies['Worldwide Sales'].mean()
+average_sales = hollywood_movies['Worldwide Sales (in $)'].mean()
 print(average_sales)
 
-median_sales = hollywood_movies['Worldwide Sales'].median()
+median_sales = hollywood_movies['Worldwide Sales (in $)'].median()
 print(median_sales)
 
 # The User Interface
