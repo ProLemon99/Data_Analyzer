@@ -43,6 +43,9 @@ def showCharts():
 average_sales = hollywood_movies['Worldwide Sales'].mean()
 print(average_sales)
 
+median_sales = hollywood_movies['Worldwide Sales'].median()
+print(median_sales)
+
 # The User Interface
 
 def UI():
