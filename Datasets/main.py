@@ -10,20 +10,30 @@ quit = False
 original = pd.read_csv('Datasets/data/highest_hollywood_grossing_movies.csv')
 
 # Data Cleaning
-filter = original.drop(["Movie Info", "Domestic Opening (in $)", "Domestic Sales (in $)", "International Sales (in $)", "Release Date", "License"], axis = 1)
+filter = original.drop(["Unnamed: 0", "Movie Info", "Domestic Opening (in $)", "Domestic Sales (in $)", "International Sales (in $)", "Release Date", "License"], axis = 1)
 
-def clean_budget_column():
-    def is_numeric(value):
-        return bool(re.match(r'^\d+$', str(value)))
-    filter['Budget (in $)'] = filter['Budget (in $)'].apply(lambda x: x if is_numeric(x) else 0)
+def is_numeric(value):
+     return bool(re.match(r'^\d+$', str(value)))
 
-clean_budget_column()
+filter['Budget (in $)'] = filter['Budget (in $)'].apply(lambda x: x if is_numeric(x) else 0)
+
 # Unfortunately, the creator of the dataset has added some wrong inputs into the 'Budget' column of the dataset.
 # This has prevented me from adding options in the User Interface relating to budgets.
-# This also means that goal 2 cannot be fulfilled.
+# This also means that goal 2 sadly cannot be fulfilled.
 
-# Dataframe Test
-filter.head()
+filter['Distributor'] = filter['Distributor'].replace('Sony Pictures Entertainment (SPE)', 'Sony Pictures Entertainment')
+
+# Removing the (SPE) from 'Sony Pictures Entertainment' to fix an error with the 'Distributor' column in the dataset
+
+def is_invalid_distributor(distributor):
+    if not isinstance(distributor, str):
+        return True
+    return bool(re.search(r'\d{4}|[\(\)]', distributor))
+
+filter['Distributor'] = filter['Distributor'].apply(
+    lambda x: 'Unknown Distributor' if is_invalid_distributor(x) else x
+    )
+# The code above fixes an error that replaces the wrong data from the "Distributor" column in the dataset with "Unknown Distributor".
 
 # Data Analysis
 # The worldwide box office
@@ -151,18 +161,18 @@ def convert_to_minutes(running_time):
 
 def max_distributor():
     filter['Distributor'] = filter['Distributor'].astype(str)
-    exploded_df = filter.explode('Distributor')
-    exploded_df['Distributor'] = exploded_df['Distributor'].str.strip()
-    distributor_counts = exploded_df['Distributor'].value_counts()
+    exploded_filter = filter.explode('Distributor')
+    exploded_filter['Distributor'] = exploded_filter['Distributor'].str.strip()
+    distributor_counts = exploded_filter['Distributor'].value_counts()
     most_distributed_distributor = distributor_counts.idxmax()
     most_distributed_count = distributor_counts.max()
     print(f'The distributor that distributed the most movies in the dataset is {most_distributed_distributor}, who distributed a total of {most_distributed_count} movies in the dataset.')
 
 def min_distributor():
     filter['Distributor'] = filter['Distributor'].astype(str)
-    exploded_df = filter.explode('Distributor')
-    exploded_df['Distributor'] = exploded_df['Distributor'].str.strip()
-    distributor_counts = exploded_df['Distributor'].value_counts()
+    exploded_filter = filter.explode('Distributor')
+    exploded_filter['Distributor'] = exploded_filter['Distributor'].str.strip()
+    distributor_counts = exploded_filter['Distributor'].value_counts()
     least_distributed_distributor = distributor_counts.idxmin()
     least_distributed_count = distributor_counts.min()
     print(f'The distributor that distributed the least movies in the dataset is {least_distributed_distributor}, who distributed a total of {least_distributed_count} movie/s in the dataset.')
@@ -186,32 +196,32 @@ filter.to_csv("Datasets/data/highest_hollywood_grossing_movies_updated.csv", ind
 def UI():
     global quit
 
-    print("""Welcome to the Dataset Visualization!\nNote: The information only comes from the data included in the dataset, so the lowest grossing movie shown in this list is not actually the lowest grossing movie in the world, but rather\nthe lowest grossing movie in the dataset.\n       
+    print("""Welcome to Levin Shao's user interface!\nNote: The information only comes from the data included in the dataset, so the lowest grossing movie shown in this list is not actually the lowest grossing movie in the world, but rather\nthe lowest grossing movie in the dataset.\n       
     Please select an option:
-    1 - Show the original dataset
-    2 - Show the cleaned dataframe
-    3 - Visualise the worldwide sales of movies in USD
-    4 - Show the total worldwide box office for all of the movies combined in USD
-    5 - Show the average worldwide box office for all of the movies in USD
-    6 - Show the box office median in all of the movies in USD
-    7 - Show the box office value that appeared the most in the dataset
-    8 - Show the movie that grossed the most in the dataset
-    9 - Show the movie that grossed the least in the dataset
-    10 - Show the total duration for all of the movies combined in the dataset
-    11 - Show the average duration for all of the movies in USD
-    12 - Show the duration median in all of the movies in USD
-    13 - Show the duration value that appeared the most in the dataset
-    14 - Show the longest movie in the dataset
-    15 - Show the shortest movie in the dataset
-    16 - Show the top 20 highest grossing movies in the dataset
-    17 - Show the bottom 20 lowest grossing movies in the dataset
-    18 - Show the most common genre for all of the movies
-    19 - Show the least common genre for all of the movies
-    20 - Show the year that released the most movies from the dataset
-    21 - Show the year that released the least movies from the dataset
-    22 - Show the distributor that distributed the most movies from the dataset
-    23 - Show the distributor that distributed the least movies from the dataset
-    24 - Exit
+    1 -> Show the original dataset
+    2 -> Show the cleaned dataframe
+    3 -> Visualise the worldwide sales of movies in USD
+    4 -> Show the total worldwide box office for all of the movies combined in USD
+    5 -> Show the average worldwide box office for all of the movies in USD
+    6 -> Show the box office median in all of the movies in USD
+    7 -> Show the box office value that appeared the most in the dataset
+    8 -> Show the movie that grossed the most in the dataset
+    9 -> Show the movie that grossed the least in the dataset
+    10 -> Show the total duration for all of the movies combined in the dataset
+    11 -> Show the average duration for all of the movies in the dataset
+    12 -> Show the duration median in all of the movies in the dataset
+    13 -> Show the duration value that appeared the most in the dataset
+    14 -> Show the longest movie in the dataset
+    15 -> Show the shortest movie in the dataset
+    16 -> Show the top 20 highest grossing movies in the dataset
+    17 -> Show the bottom 20 lowest grossing movies in the dataset
+    18 -> Show the most common genre for all of the movies in the dataset
+    19 -> Show the least common genre for all of the movies in the dataset
+    20 -> Show the year that released the most movies from the dataset
+    21 -> Show the year that released the least movies from the dataset
+    22 -> Show the distributor that distributed the most movies from the dataset
+    23 -> Show the distributor that distributed the least movies from the dataset
+    24 -> Exit the User Interface
         """)
     
     try:
@@ -265,11 +275,12 @@ def UI():
             min_distributor()
         elif choice == 24:
             quit = True
+            print("Thanks for using this program. Have a great day/night! Goodbye and see you next time!")
         else:
-            print('Not a valid number')
+            print('Not a valid number, please try again by entering a number from 1 - 24!')
 
     except:
-        print("Something went wrong! This could either be your fault (not typing in a number) or my fault (a bug). But whoever's fault this is, I apologize for the inconvenience. Perhaps just try again?")
+        print("Something went wrong! I apologize for the inconvenience. Perhaps just try again?")
 
 # Main program
 while not quit:
