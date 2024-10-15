@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
 # **ProLemon's Data Analyzer Program**
-=======
->>>>>>> Stashed changes
 # **9CT1B Assessment Task 2**
 # **ProLemon's User Interface**
 
