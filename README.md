@@ -1,5 +1,5 @@
 # **9CT1B Assessment Task 2**
-# **Levin Shao's User Interface**
+# **ProLemon's User Interface**
 
 ## Hi there! Welcome to my data analysis and user interface!
 
@@ -42,5 +42,5 @@ Regardless, here are all the options for the user interface:
 ## Thanks for using my user interface!
 Enjoy it and have fun!
 
-### "One of the best user interfaces I've ever used" - Kelvin Guo
-### "This satisfies all the functional and non-functional requirements" - Ray Wong
+### "One of the best user interfaces I've ever used" - WashbabyDaPhrog
+### "This satisfies all the functional and non-functional requirements" - UrLocalSeagull
