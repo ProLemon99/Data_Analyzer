@@ -1,6 +1,4 @@
 # **ProLemon's Data Analyzer Program**
-# **9CT1B Assessment Task 2**
-# **ProLemon's User Interface**
 
 ## Hi there! Welcome to my data analysis and user interface!
 
@@ -44,8 +42,4 @@ Regardless, here are all the options for the user interface:
 Enjoy it and have fun!
 
 ### "One of the best user interfaces I've ever used" - WashbabyDaPhrog
-<<<<<<< Updated upstream
 ### "This satisfies all the functional and non-functional requirements" - UrLocalSeagull
-=======
-### "This satisfies all the functional and non-functional requirements" - UrLocalSeagull
->>>>>>> Stashed changes
