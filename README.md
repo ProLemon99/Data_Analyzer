@@ -1,5 +1,4 @@
-# **9CT1B Assessment Task 2**
-# **Levin Shao's User Interface**
+# **ProLemon's Data Analyzer Program**
 
 ## Hi there! Welcome to my data analysis and user interface!
 
