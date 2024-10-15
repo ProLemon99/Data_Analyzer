@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 # **ProLemon's Data Analyzer Program**
+=======
+>>>>>>> Stashed changes
 # **9CT1B Assessment Task 2**
 # **ProLemon's User Interface**
 
@@ -44,4 +47,8 @@ Regardless, here are all the options for the user interface:
 Enjoy it and have fun!
 
 ### "One of the best user interfaces I've ever used" - WashbabyDaPhrog
+<<<<<<< Updated upstream
 ### "This satisfies all the functional and non-functional requirements" - UrLocalSeagull
+=======
+### "This satisfies all the functional and non-functional requirements" - UrLocalSeagull
+>>>>>>> Stashed changes
