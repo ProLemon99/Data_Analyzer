@@ -1,0 +1,2 @@
+# Steam Games Platform Comparison
+This is my python program for the comparison of different platforms. The use is quite simple: Follow the prompt on screen and you will discover the comparison between platforms and the amount of games that are supported by invididual platforms (ordered from top to bottom index).
