@@ -2,13 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 quit = False
+airplane_delays_df = pd.read_csv('Planes/data/full_data_flightdelay.csv')
 
-airplane_delays_df = pd.read_csv('Data/airplane_delays.csv')
-
-
-#most_delayed_month = most_delayed_month_value.sort_values(axis='columns') tried something
-
-#Functions
+# Functions
 def show_most_delayed_month_mode():
     most_delayed_month_mode = airplane_delays_df['MONTH'].mode()
     print("The most delayed month of the year for airplane delays is " + most_delayed_month_mode.values[0] + ".")

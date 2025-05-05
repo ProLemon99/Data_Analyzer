@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the .csv file
-airplane_delays_df = pd.read_csv('data/full_data_flightdelay.csv', on_bad_lines='warn')
+airplane_delays_df = pd.read_csv('Planes/data/full_data_flightdelay.csv', on_bad_lines='warn')
 
 airplane_delays_df = airplane_delays_df.drop(columns=['DISTANCE_GROUP',
                                                       'SEGMENT_NUMBER',

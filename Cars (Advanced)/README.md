@@ -1,0 +1,2 @@
+The GUI contains a few components. You will see 4 tabs, containing 2 with Matplotlibs of information about the average price of each car type, and car model. Some other components include the dataframe and a help tab with the summarised text in this document.
+Use this data well, for helping you get a new ride. 
