@@ -16,7 +16,8 @@ Side notes:
 **PLEASE PLEASE IGNORE get-pip.py! It is not part of the program in any way.**
 
 Credits:
-The CSV was sourced from Kaggle: https://www.kaggle.com/datasets/zahrayazdani81/carsdataset/data
-UI was programmed by @RayBirbz
+
+- The CSV was sourced from Kaggle: https://www.kaggle.com/datasets/zahrayazdani81/carsdataset/data
+- UI was programmed by @RayBirbz
 
 Thanks for using!
