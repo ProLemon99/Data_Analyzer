@@ -13,7 +13,7 @@ df_original.columns = df_original.columns.str.strip()
 
 # Update the dataframe
 df_updated = df_original.drop(['Poster_Link', 'Director', 'Star1', 'Star2', 'Star3', 'Star4', 'No_of_Votes', 'Gross'], axis=1,)
-df_updated.to_csv('Movies (IMDb)data/imdb_top_1000_updated.csv')
+df_updated.to_csv('Movies (IMDb)/data/imdb_top_1000_updated.csv')
 
 # Functions
 def showData():
@@ -143,7 +143,7 @@ def mainUI():
 
     print("""
 
-        Welcome to Alex's dataset program! Please use numbers to navigate the following options:
+        Welcome to the IMDb dataset program! Please use numbers to navigate the following options:
     [1] -> Show the original dataset
     [2] -> Show the updated dataset
     [3] -> Visualise distributed IMDb ratings in a histogram
